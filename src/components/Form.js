@@ -7,6 +7,8 @@ import hatchback from '../utils/images/hatchback_new.png'
 import sedan from '../utils/images/sedan_new.png'
 import suv from '../utils/images/xylo_new.png'
 import cover from '../utils/images/cover.jpg'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
@@ -36,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     border: 'solid 1px #e7eaf3',
     padding: '20px',
     width: '280px',
-    margin:'auto'
+    margin: 'auto',
   },
   carIcon: {
     height: '60px',
@@ -51,12 +53,11 @@ const useStyles = makeStyles((theme) => ({
     border: 0,
     width: '100%',
     height: '2em',
-    textAlign:'center'
-    
+    textAlign: 'center',
   },
   input: {
-    width:'100%'
-  }
+    width: '100%',
+  },
 }))
 
 const Form = ({ handleClose }) => {
@@ -69,9 +70,7 @@ const Form = ({ handleClose }) => {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [time, setTime] = useState(new Date('2014-08-18T21:11:54'))
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date('2014-08-18T21:11:54')
-  )
+  const [selectedDate, setSelectedDate] = React.useState(new Date())
 
   const handleDateChange = (date) => {
     setSelectedDate(date)
@@ -85,12 +84,7 @@ const Form = ({ handleClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(cabType,
-      tripType,
-      from,
-      to,
-      selectedDate,
-      time)
+    console.log(cabType, tripType, from, to, selectedDate, time)
     try {
       console.log(from)
       const response = await fetch(
@@ -116,7 +110,10 @@ const Form = ({ handleClose }) => {
         }
       )
       console.log(response)
-      await response.json()
+      const result = await response.json()
+      if (result) {
+        toast.success('Query Sent Successfully')
+      }
     } catch (error) {
       console.log(error)
     }
@@ -124,8 +121,8 @@ const Form = ({ handleClose }) => {
 
   return (
     <Paper style={{ width: '88%', margin: '30px auto' }}>
+      <ToastContainer />
       <form className={classes.root} onSubmit={handleSubmit}>
-        
         <Typography
           style={{
             textAlign: 'left',
@@ -137,7 +134,7 @@ const Form = ({ handleClose }) => {
         >
           CAB TYPE
         </Typography>
-        <Grid container justify='space-around'>
+        <Grid container justify="space-around">
           <Grid item xs={12} sm={4}>
             <label for="hatchback" className={classes.flex}>
               <img src={hatchback} className={classes.carIcon} alt="" />
@@ -196,9 +193,9 @@ const Form = ({ handleClose }) => {
           TRIP DETAILS
         </Typography>
         <Grid container>
-        <Grid item xs={12} sm={6}>
-          <img src={cover} alt='' style={{width:'78%',height:'55vh'}}/>
-        </Grid>
+          <Grid item xs={12} sm={6}>
+            <img src={cover} alt="" style={{ width: '78%', height: '55vh' }} />
+          </Grid>
           <Grid item xs={12} sm={6}>
             <Grid container>
               <Grid item xs={12}>
@@ -208,7 +205,9 @@ const Form = ({ handleClose }) => {
                   getOptionLabel={(option) => option.title}
                   popupIcon={false}
                   className={classes.input}
-                  onInputChange={(o,v)=>{console.log(v,settripType(v))}}
+                  onInputChange={(o, v) => {
+                    console.log(v, settripType(v))
+                  }}
                   renderInput={(params) => (
                     <TextField
                       {...params}
@@ -219,58 +218,102 @@ const Form = ({ handleClose }) => {
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
-              <TextField id="from" label="From" value={from} onChange={(e)=>{setFrom(e.target.value)}} variant='outlined' className={classes.input}/>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-              <TextField id="to" label="To" value={to} onChange={(e)=>{setTo(e.target.value)}} variant='outlined' className={classes.input}/>
-              </Grid>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <Grid item xs={12} sm={6}>
-                <KeyboardDatePicker
-                  margin="normal"
-                  id="date-picker-dialog"
-                  label="Date picker dialog"
-                  format="MM/dd/yyyy"
-                  className={classes.input}
-                  value={selectedDate}
-                  inputVariant="outlined"
-                  onChange={handleDateChange}
-                  KeyboardButtonProps={{
-                    'aria-label': 'change date',
+                <TextField
+                  id="from"
+                  label="From"
+                  value={from}
+                  onChange={(e) => {
+                    setFrom(e.target.value)
                   }}
+                  variant="outlined"
+                  className={classes.input}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
-                <KeyboardTimePicker
-                  margin="normal"
-                  id="time-picker"
-                  label="Time picker"
-                  className={classes.input}
-                  value={selectedDate}
-                  inputVariant="outlined"
-                  onChange={handleDateChange}
-                  KeyboardButtonProps={{
-                    'aria-label': 'change time',
+                <TextField
+                  id="to"
+                  label="To"
+                  value={to}
+                  onChange={(e) => {
+                    setTo(e.target.value)
                   }}
+                  variant="outlined"
+                  className={classes.input}
                 />
               </Grid>
-            </MuiPickersUtilsProvider>
-            <Grid item xs={12}>
-                <TextField id="Email" label="Email" value={email} onChange={(e)=>{setEmail(e.target.value)}} variant='outlined' className={classes.input}/>
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <Grid item xs={12} sm={6}>
+                  <KeyboardDatePicker
+                    margin="normal"
+                    id="date-picker-dialog"
+                    label="Date picker dialog"
+                    format="MM/dd/yyyy"
+                    className={classes.input}
+                    value={selectedDate}
+                    inputVariant="outlined"
+                    onChange={handleDateChange}
+                    KeyboardButtonProps={{
+                      'aria-label': 'change date',
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <KeyboardTimePicker
+                    margin="normal"
+                    id="time-picker"
+                    label="Time picker"
+                    className={classes.input}
+                    value={selectedDate}
+                    inputVariant="outlined"
+                    onChange={handleDateChange}
+                    KeyboardButtonProps={{
+                      'aria-label': 'change time',
+                    }}
+                  />
+                </Grid>
+              </MuiPickersUtilsProvider>
+              <Grid item xs={12}>
+                <TextField
+                  id="Email"
+                  label="Email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value)
+                  }}
+                  variant="outlined"
+                  className={classes.input}
+                />
               </Grid>
               <Grid item xs={12}>
-              <TextField id="Mobile" required label="Mobile" value={mobile} onChange={(e)=>{setMobile(e.target.value)}} variant='outlined' className={classes.input}/>
+                <TextField
+                  id="Mobile"
+                  required
+                  label="Mobile"
+                  value={mobile}
+                  onChange={(e) => {
+                    setMobile(e.target.value)
+                  }}
+                  variant="outlined"
+                  className={classes.input}
+                />
               </Grid>
             </Grid>
             <div>
-          <Button type="submit" variant="contained" style={{background:"#fcb628",color:'#fff',fontWeight:'bold',width:'25%'}}>
-            Query
-          </Button>
-        </div>
+              <Button
+                type="submit"
+                variant="contained"
+                style={{
+                  background: '#fcb628',
+                  color: '#fff',
+                  fontWeight: 'bold',
+                  width: '25%',
+                }}
+              >
+                Query
+              </Button>
+            </div>
           </Grid>
-          
         </Grid>
-       
       </form>
     </Paper>
   )
