@@ -3,11 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Paper, Grid } from '@material-ui/core'
 import WhyChooseUsItem from '../components/WhychooseUsItem'
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    width: '88%',
-    margin: 'auto',
-    padding: '20px',
-  },
   itemHeading: {
     fontSize: '15pt',
     fontWeight: '600',
@@ -28,7 +23,7 @@ export default function WhyChooseUs() {
   const classes = useStyles()
 
   return (
-    <Paper className={classes.paper}>
+    <Paper className="coursel-paper">
       <h2 style={{ textAlign: 'left', marginBottom: '-20px' }}>Why Us?</h2>
       <Grid container justify="spaceBetween">
         <Grid item xs={12} sm={6}>

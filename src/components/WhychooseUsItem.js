@@ -1,7 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid } from '@material-ui/core'
-import safe from '../utils/images/safe.jpeg'
 import cashless from '../utils/images/cashless.jpeg'
 import entertainment from '../utils/images/entertainment.jpeg'
 import option from '../utils/images/option.jpeg'
@@ -60,16 +59,17 @@ export default function WhyChooseUsItem(props) {
           <img
             className={classes.imgHolder}
             src={
-              props.heading == 'Secure And Safe Rides'
+              props.heading === 'Secure And Safe Rides'
                 ? 'https://cms-web.olacabs.com/00000000370.jpg'
-                : props.heading == 'Wide Range of Options'
+                : props.heading === 'Wide Range of Options'
                 ? option
-                : props.heading == 'In-Cab Environment'
+                : props.heading === 'In-Cab Environment'
                 ? entertainment
-                : props.heading == 'No Cash? No Problem!'
+                : props.heading === 'No Cash? No Problem!'
                 ? cashless
                 : 'https://cms-web.olacabs.com/00000000368.jpg'
             }
+            alt=""
           />
         </Grid>
         <Grid item xs={12} sm={9}>

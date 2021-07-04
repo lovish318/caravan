@@ -1,0 +1,119 @@
+.coursel-paper {
+  padding: 30px;
+  margin: 30px auto;
+  width: 88%;
+}
+.coursel {
+  background: #fcb628;
+  height: 490px;
+}
+
+.coursel-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.coursel-img {
+  width: 35%;
+  height: 300px;
+  margin: 50px auto;
+}
+.coursel-desc {
+  margin: 9% auto;
+  width: 35%;
+  color: #fff;
+  font-size: 18px;
+  margin-left: -26;
+}
+.coursel-heading {
+  text-align: left;
+}
+.aboutus-root {
+  max-width: 345px;
+}
+.aboutus-media {
+  height: 200;
+}
+.aboutus-content {
+  height: 370;
+}
+.aboutus-iconInfo {
+  text-align: left;
+  width: 66px;
+  line-height: normal;
+  margin-top: 5px;
+}
+.aboutus-iconDiv {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.aboutus-maintxt {
+  text-align: left;
+  width: 60%;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+.contactus-root {
+  flex-grow: 1;
+  background: #fcb628;
+  padding: 40px 73px;
+}
+.form-img {
+  width: 78%;
+}
+@media all and (max-width: 500px) {
+  .contactus-root {
+    flex-grow: 1;
+    background: #fcb628;
+    padding: 20px;
+  }
+  .form-img {
+    width: 100%;
+    height: 55vh;
+  }
+
+  .coursel-paper {
+    width: 100%;
+    padding: 5px;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+  .aboutus-root {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  .MuiTypography-root {
+    margin: auto;
+  }
+  .aboutus-maintxt {
+    text-align: left;
+    width: 99%;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+  }
+  .coursel-img {
+    width: 100%;
+    margin: auto;
+    height: 280px;
+  }
+  .coursel-layout {
+    flex-direction: column;
+  }
+  .coursel-heading {
+    text-align: left;
+    margin-left: 10px;
+  }
+  .coursel-desc {
+    width: 100%;
+    margin: auto;
+    margin-left: 0px;
+    color: #fff;
+  }
+  .coursel {
+    height: 700px;
+  }
+}

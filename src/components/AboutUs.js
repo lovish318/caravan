@@ -1,33 +1,17 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import { Grid, Paper, Typography, Box } from '@material-ui/core'
+import { Grid, Paper, Typography } from '@material-ui/core'
 import AboutUsItem from '../components/AboutUsItem'
-
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-})
+import './style.css'
 
 export default function MediaCard() {
-  const classes = useStyles()
-
   return (
-    <Paper style={{ padding: '30px', margin: '30px auto', width: '88%' }}>
+    <Paper className="coursel-paper">
       <h2 style={{ textAlign: 'left', marginBottom: '20px' }}>Who We Are?</h2>
       <Typography
         variant="body2"
         color="textSecondary"
         component="p"
-        style={{
-          textAlign: 'left',
-          width: '60%',
-          marginTop: '-10px',
-          marginBottom: '20px',
-        }}
+        className="aboutus-maintxt"
       >
         Caravan, an initiative to rekindle the beauty of journeys and fulfilled
         destinations, in the wake of coronavirus pandemic. We are here to make
@@ -39,12 +23,7 @@ export default function MediaCard() {
         variant="body2"
         color="textSecondary"
         component="p"
-        style={{
-          textAlign: 'left',
-          width: '60%',
-          marginTop: '-10px',
-          marginBottom: '20px',
-        }}
+        className="aboutus-maintxt"
       >
         Strictly complying to all the rules and regulations formulated by the
         government, our services ensure the safety of our customers and people
@@ -55,12 +34,7 @@ export default function MediaCard() {
         variant="body2"
         color="textSecondary"
         component="p"
-        style={{
-          textAlign: 'left',
-          width: '60%',
-          marginTop: '-10px',
-          marginBottom: '20px',
-        }}
+        className="aboutus-maintxt"
       >
         We have a wide range of cars tailor made according to your requirements
         and interests. So wherever and whatever your plans are, your perfect
@@ -70,17 +44,14 @@ export default function MediaCard() {
         variant="body2"
         color="textSecondary"
         component="p"
-        style={{
-          textAlign: 'left',
-          width: '60%',
-          marginTop: '-10px',
-          marginBottom: '30px',
-        }}
+        className="aboutus-maintxt"
       >
         You pick, we provide.
       </Typography>
-      <h2 style={{ textAlign: 'left' }}>What We Do?</h2>
-      <h4 style={{ textAlign: 'left' }}>A Car For Every Occasion</h4>
+      <h2 style={{ textAlign: 'left', marginTop: '20px' }}>What We Do?</h2>
+      <h4 style={{ textAlign: 'left', marginTop: '10px' }}>
+        A Car For Every Occasion
+      </h4>
       <Grid container>
         <Grid item xs={12} sm={4}>
           <AboutUsItem

@@ -1,5 +1,4 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
@@ -19,37 +18,12 @@ import card1 from '../utils/images/cityRide.jpeg'
 import card2 from '../utils/images/outstation.jpeg'
 import card3 from '../utils/images/luxary.jpeg'
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 200,
-  },
-  content: {
-    height: 300,
-  },
-  iconInfo: {
-    textAlign: 'left',
-    width: '66px',
-    lineHeight: 'normal',
-    marginTop: '5px',
-  },
-  iconDiv: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    marginBottom: '20px',
-  },
-})
-
 export default function AboutUsItem(props) {
-  const classes = useStyles()
-
   return (
-    <Card className={classes.root}>
+    <Card className="aboutus-root">
       <CardActionArea>
         <CardMedia
-          className={classes.media}
+          className="aboutus-media"
           image={
             props.heading == 'In-City Ride'
               ? card1
@@ -58,7 +32,7 @@ export default function AboutUsItem(props) {
               : card3
           }
         />
-        <CardContent className={classes.content}>
+        <CardContent className="aboutus-content">
           <Typography
             gutterBottom
             variant="h5"
@@ -77,7 +51,7 @@ export default function AboutUsItem(props) {
           </Typography>
         </CardContent>
         {props.heading == 'In-City Ride' ? (
-          <Box className={classes.iconDiv}>
+          <Box className="aboutus-iconDiv">
             <div style={{ display: 'flex', width: '30%' }}>
               <img
                 src={ct1}
@@ -88,7 +62,7 @@ export default function AboutUsItem(props) {
                 variant="body2"
                 color="textSecondary"
                 component="p"
-                className={classes.iconInfo}
+                className="aboutus-iconInfo"
               >
                 AC Cabs
               </Typography>
@@ -103,7 +77,7 @@ export default function AboutUsItem(props) {
                 variant="body2"
                 color="textSecondary"
                 component="p"
-                className={classes.iconInfo}
+                className="aboutus-iconInfo"
               >
                 Pocket Friendly
               </Typography>
@@ -118,14 +92,14 @@ export default function AboutUsItem(props) {
                 variant="body2"
                 color="textSecondary"
                 component="p"
-                className={classes.iconInfo}
+                className="aboutus-iconInfo"
               >
                 Cashless Rides
               </Typography>
             </div>
           </Box>
         ) : props.heading == 'Out Station' ? (
-          <Box className={classes.iconDiv}>
+          <Box className="aboutus-iconDiv">
             <div style={{ display: 'flex', width: '30%' }}>
               <img
                 src={os1}
@@ -136,7 +110,7 @@ export default function AboutUsItem(props) {
                 variant="body2"
                 color="textSecondary"
                 component="p"
-                className={classes.iconInfo}
+                className="aboutus-iconInfo"
               >
                 One-Way Trips
               </Typography>
@@ -151,7 +125,7 @@ export default function AboutUsItem(props) {
                 variant="body2"
                 color="textSecondary"
                 component="p"
-                className={classes.iconInfo}
+                className="aboutus-iconInfo"
               >
                 Advance Booking
               </Typography>
@@ -166,14 +140,14 @@ export default function AboutUsItem(props) {
                 variant="body2"
                 color="textSecondary"
                 component="p"
-                className={classes.iconInfo}
+                className="aboutus-iconInfo"
               >
                 Safe Rides
               </Typography>
             </div>
           </Box>
         ) : (
-          <Box className={classes.iconDiv}>
+          <Box className="aboutus-iconDiv">
             <div style={{ display: 'flex', width: '30%' }}>
               <img
                 src={rental1}
@@ -184,7 +158,7 @@ export default function AboutUsItem(props) {
                 variant="body2"
                 color="textSecondary"
                 component="p"
-                className={classes.iconInfo}
+                className="aboutus-iconInfo"
               >
                 Hourly Packages
               </Typography>
@@ -199,7 +173,7 @@ export default function AboutUsItem(props) {
                 variant="body2"
                 color="textSecondary"
                 component="p"
-                className={classes.iconInfo}
+                className="aboutus-iconInfo"
               >
                 Multiple Stops
               </Typography>
@@ -214,7 +188,7 @@ export default function AboutUsItem(props) {
                 variant="body2"
                 color="textSecondary"
                 component="p"
-                className={classes.iconInfo}
+                className="aboutus-iconInfo"
               >
                 Top-Rated Partners
               </Typography>

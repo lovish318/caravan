@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Grid, makeStyles, Typography, Paper, Box } from '@material-ui/core'
+import { Grid, makeStyles, Typography, Paper } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Autocomplete from '@material-ui/lab/Autocomplete'
@@ -68,8 +68,7 @@ const Form = ({ handleClose }) => {
   const [cabType, setCabType] = useState('')
   const [mobile, setMobile] = useState('')
   const [email, setEmail] = useState('')
-  const [name, setName] = useState('')
-  const [time, setTime] = useState(new Date('2014-08-18T21:11:54'))
+  const [time] = useState(new Date('2014-08-18T21:11:54'))
   const [selectedDate, setSelectedDate] = React.useState(new Date())
 
   const handleDateChange = (date) => {
@@ -120,7 +119,7 @@ const Form = ({ handleClose }) => {
   }
 
   return (
-    <Paper style={{ width: '88%', margin: '30px auto' }}>
+    <Paper className="coursel-paper">
       <ToastContainer />
       <form className={classes.root} onSubmit={handleSubmit}>
         <Typography
@@ -194,7 +193,7 @@ const Form = ({ handleClose }) => {
         </Typography>
         <Grid container>
           <Grid item xs={12} sm={6}>
-            <img src={cover} alt="" style={{ width: '78%', height: '55vh' }} />
+            <img src={cover} alt="" className="form-img" />
           </Grid>
           <Grid item xs={12} sm={6}>
             <Grid container>

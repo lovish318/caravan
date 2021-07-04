@@ -4,11 +4,6 @@ import { Typography, Grid } from '@material-ui/core'
 import ContactItem from './ContactItem'
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    background: '#fcb628',
-    padding:'40px 73px'
-  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -16,24 +11,31 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     textAlign: 'left',
     color: '#fff',
-    marginBottom: '20px'
+    marginBottom: '20px',
   },
-  
 }))
 
 export default function ContactUs() {
   const classes = useStyles()
 
   return (
-    <div className={classes.root} id='ContactUs'>
+    <div className="contactus-root" id="ContactUs">
       <Typography variant="h4" className={classes.title}>
         Contact Us
       </Typography>
-        <Grid container>
-          <ContactItem title="Address" type="location" description="Sector 51-A, Chandigarh" />
-          <ContactItem title="Phone" type="phone" description="+91 7710221198" />
-          <ContactItem title="Email" type="email" description="Caravancabservices@gmail.com" />
-        </Grid>
+      <Grid container>
+        <ContactItem
+          title="Address"
+          type="location"
+          description="Sector 51-A, Chandigarh"
+        />
+        <ContactItem title="Phone" type="phone" description="+91 7710221198" />
+        <ContactItem
+          title="Email"
+          type="email"
+          description="Caravancabservices@gmail.com"
+        />
+      </Grid>
     </div>
   )
 }
