@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Grid } from '@material-ui/core'
 import cashless from '../utils/images/cashless.jpeg'
 import entertainment from '../utils/images/entertainment.jpeg'
-import option from '../utils/images/option.jpeg'
+import option from '../utils/images/option.jpg'
 const useStyles = makeStyles((theme) => ({
   info: {
     fontSize: '16px',

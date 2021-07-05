@@ -45,7 +45,12 @@ export default function Navbar() {
             <img
               src={Name}
               alt=""
-              style={{ width: '150px', height: '70px', marginBottom: '-10px' }}
+              style={{
+                width: '150px',
+                height: '60px',
+                marginBottom: 'auto',
+                marginTop: 'auto',
+              }}
             />
           </div>
           <Box>

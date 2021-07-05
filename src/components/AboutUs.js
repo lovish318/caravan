@@ -6,7 +6,11 @@ import './style.css'
 export default function MediaCard() {
   return (
     <Paper className="coursel-paper">
-      <h2 style={{ textAlign: 'left', marginBottom: '20px' }}>Who We Are?</h2>
+      <h2
+        style={{ textAlign: 'left', marginBottom: '20px', marginLeft: '10px' }}
+      >
+        Who We Are?
+      </h2>
       <Typography
         variant="body2"
         color="textSecondary"
@@ -48,8 +52,10 @@ export default function MediaCard() {
       >
         You pick, we provide.
       </Typography>
-      <h2 style={{ textAlign: 'left', marginTop: '20px' }}>What We Do?</h2>
-      <h4 style={{ textAlign: 'left', marginTop: '10px' }}>
+      <h2 style={{ textAlign: 'left', marginTop: '20px', marginLeft: '10px' }}>
+        What We Do?
+      </h2>
+      <h4 style={{ textAlign: 'left', marginTop: '10px', marginLeft: '10px' }}>
         A Car For Every Occasion
       </h4>
       <Grid container>
